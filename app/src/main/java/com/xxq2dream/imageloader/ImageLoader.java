@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.xxq2dream.imageloader.cache.ImageCache;
 import com.xxq2dream.imageloader.cache.MemoryCache;
+import com.xxq2dream.imageloader.config.ImageLoaderConfig;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -20,8 +21,12 @@ import java.util.concurrent.Executors;
 
 
 public class ImageLoader {
+    //图片加载配置
+    ImageLoaderConfig mConfig;
+
     // 图片缓存，依赖接口
     ImageCache mImageCache = new MemoryCache();
+
     // 线程池，线程数量为CPU的数量
     ExecutorService mExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
@@ -40,9 +45,9 @@ public class ImageLoader {
 
     }
 
-    // 注入缓存,对扩展开放，对修改关闭
-    public void setImageCache(ImageCache cache) {
-        mImageCache = cache;
+    public void init(ImageLoaderConfig config) {
+        mConfig = config;
+        mImageCache = mConfig.mImageCache;
     }
 
     /**
@@ -66,12 +71,14 @@ public class ImageLoader {
      * @param imageView
      */
     private void submitLoadRequest(final String imageUrl, final ImageView imageView) {
+        imageView.setImageResource(mConfig.displayConfig.loadingImageId);
         imageView.setTag(imageUrl);
         mExecutorService.submit(new Runnable() {
             @Override
             public void run() {
                 Bitmap bitmap = downloadImage(imageUrl);
                 if (bitmap == null) {
+                    imageView.setImageResource(mConfig.displayConfig.loadingFailImageId);
                     return;
                 }
                 if (imageUrl.equals(imageView.getTag())) {
