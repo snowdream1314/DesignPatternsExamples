@@ -25,6 +25,21 @@ public class ImageLoader {
     // 线程池，线程数量为CPU的数量
     ExecutorService mExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
+    private static ImageLoader mImageLoader = null;
+    private ImageLoader () {}
+
+    public static ImageLoader getInstance() {
+        if (mImageLoader == null) {
+            synchronized (ImageLoader.class) {
+                if (mImageLoader == null) {
+                    mImageLoader = new ImageLoader();
+                }
+            }
+        }
+        return mImageLoader;
+
+    }
+
     // 注入缓存,对扩展开放，对修改关闭
     public void setImageCache(ImageCache cache) {
         mImageCache = cache;
