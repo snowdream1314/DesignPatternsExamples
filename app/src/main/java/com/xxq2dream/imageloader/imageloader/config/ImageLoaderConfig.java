@@ -1,7 +1,7 @@
-package com.xxq2dream.imageloader.config;
+package com.xxq2dream.imageloader.imageloader.config;
 
-import com.xxq2dream.imageloader.cache.ImageCache;
-import com.xxq2dream.imageloader.cache.MemoryCache;
+import com.xxq2dream.imageloader.imageloader.cache.ImageCache;
+import com.xxq2dream.imageloader.imageloader.cache.MemoryCache;
 
 /**
  * Description : 配置类

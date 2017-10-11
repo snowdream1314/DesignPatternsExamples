@@ -1,12 +1,12 @@
-package com.xxq2dream.imageloader;
+package com.xxq2dream.imageloader.imageloader;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
-import com.xxq2dream.imageloader.cache.ImageCache;
-import com.xxq2dream.imageloader.cache.MemoryCache;
-import com.xxq2dream.imageloader.config.ImageLoaderConfig;
+import com.xxq2dream.imageloader.imageloader.cache.ImageCache;
+import com.xxq2dream.imageloader.imageloader.cache.MemoryCache;
+import com.xxq2dream.imageloader.imageloader.config.ImageLoaderConfig;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

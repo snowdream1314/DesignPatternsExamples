@@ -1,4 +1,4 @@
-package com.xxq2dream.imageloader.config;
+package com.xxq2dream.imageloader.imageloader.config;
 
 import com.xxq2dream.imageloader.R;
 

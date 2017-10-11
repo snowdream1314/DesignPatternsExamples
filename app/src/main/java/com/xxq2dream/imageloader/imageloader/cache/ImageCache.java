@@ -1,4 +1,4 @@
-package com.xxq2dream.imageloader.cache;
+package com.xxq2dream.imageloader.imageloader.cache;
 
 import android.graphics.Bitmap;
 
