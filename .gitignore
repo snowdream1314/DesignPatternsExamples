@@ -13,6 +13,6 @@
 /gradle.properties
 /gradlew
 /gradlew.bat
-/app/src/test/
 /.idea/vcs.xml
 /app/build/
+/app/.gitignore
