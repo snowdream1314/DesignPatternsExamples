@@ -1,6 +1,6 @@
-package com.xxq2dream.imageloader.imageloader.config;
+package com.xxq2dream.designpatternsexamples.imageloader.config;
 
-import com.xxq2dream.imageloader.R;
+import com.xxq2dream.designpatternsexamples.R;
 
 /**
  * Description : 显示图片配置

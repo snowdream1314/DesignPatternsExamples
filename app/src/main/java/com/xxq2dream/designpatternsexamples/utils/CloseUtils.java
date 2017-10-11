@@ -1,4 +1,4 @@
-package com.xxq2dream.imageloader.utils;
+package com.xxq2dream.designpatternsexamples.utils;
 
 import java.io.Closeable;
 import java.io.IOException;

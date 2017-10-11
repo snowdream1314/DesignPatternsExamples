@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="com.xxq2dream.imageloader">
+    package="com.xxq2dream.designpatternsexamples">
 
     <application
         android:allowBackup="true"
