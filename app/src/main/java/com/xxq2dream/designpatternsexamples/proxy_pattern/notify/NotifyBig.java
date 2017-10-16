@@ -24,7 +24,7 @@ public class NotifyBig extends Notify {
         builder.setContent(new RemoteViews(context.getPackageName(), R.layout.layout_notify_normal));
         builder.setCustomBigContentView(new RemoteViews(context.getPackageName(), R.layout.layout_notify_normal));
         Notification notification = builder.build();
-        notification.notify();
+        notificationManager.notify(0, notification);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class NotifyHeadersUp extends Notify {
         builder.setCustomBigContentView(new RemoteViews(context.getPackageName(), R.layout.layout_notify_normal));
         builder.setCustomHeadsUpContentView(new RemoteViews(context.getPackageName(), R.layout.layout_notify_normal));
         Notification notification = builder.build();
-        notification.notify();
+        notificationManager.notify(0, notification);
     }
 
     @Override

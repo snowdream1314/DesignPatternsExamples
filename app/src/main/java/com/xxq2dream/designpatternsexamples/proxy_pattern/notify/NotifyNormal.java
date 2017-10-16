@@ -23,7 +23,7 @@ public class NotifyNormal extends Notify {
     public void send() {
         builder.setContent(new RemoteViews(context.getPackageName(), R.layout.layout_notify_normal));
         Notification notification = builder.build();
-        notification.notify();
+        notificationManager.notify(0, notification);
     }
 
     @Override
