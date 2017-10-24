@@ -3,6 +3,8 @@ package com.xxq2dream.designpatternsexamples.imageloader.cache;
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
+import com.xxq2dream.designpatternsexamples.imageloader.request.ImageRequest;
+
 /**
  * Description : 内存缓存
  * <p>
@@ -32,12 +34,12 @@ public class MemoryCache implements ImageCache{
     }
 
     @Override
-    public Bitmap get(String url) {
-        return mMemoryCache.get(url);
+    public Bitmap get(ImageRequest request) {
+        return mMemoryCache.get(request.getImageUrl());
     }
 
     @Override
-    public void put(String url, Bitmap bitmap) {
-        mMemoryCache.put(url, bitmap);
+    public void put(ImageRequest request, Bitmap bitmap) {
+        mMemoryCache.put(request.getImageUrl(), bitmap);
     }
 }

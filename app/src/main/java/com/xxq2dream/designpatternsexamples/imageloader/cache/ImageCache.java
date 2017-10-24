@@ -2,6 +2,8 @@ package com.xxq2dream.designpatternsexamples.imageloader.cache;
 
 import android.graphics.Bitmap;
 
+import com.xxq2dream.designpatternsexamples.imageloader.request.ImageRequest;
+
 /**
  * Description : 图片缓存接口
  * <p>
@@ -10,6 +12,6 @@ import android.graphics.Bitmap;
 
 
 public interface ImageCache {
-    public Bitmap get(String url);
-    public void put(String url, Bitmap bitmap);
+    public Bitmap get(ImageRequest request);
+    public void put(ImageRequest request, Bitmap bitmap);
 }
