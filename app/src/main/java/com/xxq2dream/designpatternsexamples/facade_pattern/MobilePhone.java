@@ -16,24 +16,14 @@ public class MobilePhone {
     private Phone mPhone = new PhoneImpl();
     private Camera mCamera = new MiCamera();
 
-    public void dail() {
-        mPhone.dail();
-    }
-
-    public void hangup() {
-        mPhone.hangup();
-    }
-
-    public void openCamera() {
-        mCamera.open();
-    }
-
     public void takePhoto() {
+        mCamera.open();
         mCamera.takePhoto();
-    }
-
-    public void closeCamera() {
         mCamera.close();
     }
 
+    public void videoChat() {
+        mCamera.open();
+        mPhone.dail();
+    }
 }

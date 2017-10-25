@@ -9,9 +9,6 @@ import com.xxq2dream.designpatternsexamples.imageloader.config.ImageLoaderConfig
 import com.xxq2dream.designpatternsexamples.imageloader.queue.RequestQueue;
 import com.xxq2dream.designpatternsexamples.imageloader.request.ImageRequest;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 /**
  * Description : 图片加载主模块
  * <p>
@@ -25,9 +22,6 @@ public class ImageLoader {
 
     // 图片缓存，依赖接口
     ImageCache mImageCache = new MemoryCache();
-
-    // 线程池，线程数量为CPU的数量
-    ExecutorService mExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     //请求队列
     private RequestQueue requestQueue;
