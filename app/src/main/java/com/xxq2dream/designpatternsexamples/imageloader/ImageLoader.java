@@ -6,7 +6,6 @@ import com.xxq2dream.designpatternsexamples.imageloader.cache.ImageCache;
 import com.xxq2dream.designpatternsexamples.imageloader.cache.MemoryCache;
 import com.xxq2dream.designpatternsexamples.imageloader.config.DisplayConfig;
 import com.xxq2dream.designpatternsexamples.imageloader.config.ImageLoaderConfig;
-import com.xxq2dream.designpatternsexamples.imageloader.queue.RequestQueue;
 import com.xxq2dream.designpatternsexamples.imageloader.request.ImageRequest;
 
 /**
@@ -17,13 +16,19 @@ import com.xxq2dream.designpatternsexamples.imageloader.request.ImageRequest;
 
 
 public class ImageLoader {
-    //图片加载配置
+    /**
+     * 图片加载配置
+     */
     ImageLoaderConfig mConfig;
 
-    // 图片缓存，依赖接口
+    /**
+     * 图片缓存，依赖接口
+     */
     ImageCache mImageCache = new MemoryCache();
 
-    //请求队列
+    /**
+     * 请求队列
+     */
     private RequestQueue requestQueue;
 
     private static ImageLoader mImageLoader = null;
@@ -74,6 +79,7 @@ public class ImageLoader {
     public void displayImage(final ImageView imageView, String url, DisplayConfig config) {
         ImageRequest request = new ImageRequest(imageView, url, config);
         request.displayConfig = request.displayConfig != null ? request.displayConfig : mConfig.displayConfig;
+        request.setLoadPolicy(mConfig.loadPolicy);
         requestQueue.addRequest(request);
     }
 

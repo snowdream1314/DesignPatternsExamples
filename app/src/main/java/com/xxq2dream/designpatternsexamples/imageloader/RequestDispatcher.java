@@ -1,6 +1,7 @@
-package com.xxq2dream.designpatternsexamples.imageloader.request;
+package com.xxq2dream.designpatternsexamples.imageloader;
 
 import com.xxq2dream.designpatternsexamples.imageloader.loader.LoaderManager;
+import com.xxq2dream.designpatternsexamples.imageloader.request.ImageRequest;
 
 import java.util.concurrent.BlockingQueue;
 

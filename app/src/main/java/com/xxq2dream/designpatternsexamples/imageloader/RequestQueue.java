@@ -1,10 +1,10 @@
-package com.xxq2dream.designpatternsexamples.imageloader.queue;
+package com.xxq2dream.designpatternsexamples.imageloader;
 
 import com.xxq2dream.designpatternsexamples.imageloader.request.ImageRequest;
-import com.xxq2dream.designpatternsexamples.imageloader.request.RequestDispatcher;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Description : 请求队列
@@ -14,16 +14,29 @@ import java.util.concurrent.PriorityBlockingQueue;
 
 
 public final class RequestQueue {
-    //请求队列
+    /**
+     * 请求队列
+     */
     private BlockingQueue<ImageRequest> mRequestQueue = new PriorityBlockingQueue<>();
 
-    //默认请求核心数
+    /**
+     * 默认请求核心数
+     */
     public static int DEFAULT_CORE_NUMS = Runtime.getRuntime().availableProcessors() + 1;
 
-    //执行网络请求的线程
+    /**
+     * 执行网络请求的线程
+     */
     private RequestDispatcher[] mDispatchers = null;
 
-    //执行网络请求的线程的数量
+    /**
+     * 请求的序列号生成器
+     */
+    private AtomicInteger mSerialNumGenerator = new AtomicInteger(0);
+
+    /**
+     * 执行网络请求的线程的数量
+     */
     private int mDispatcherNums = DEFAULT_CORE_NUMS;
 
     public RequestQueue() {
@@ -41,6 +54,7 @@ public final class RequestQueue {
 
     public void addRequest(ImageRequest request) {
         if (!mRequestQueue.contains(request)) {
+            request.serialNum = generateSerialNum();
             mRequestQueue.add(request);
         }
     }
@@ -63,6 +77,13 @@ public final class RequestQueue {
 
     public void clear() {
         mRequestQueue.clear();
+    }
+
+    /**
+     * @return 序列号
+     */
+    private int generateSerialNum() {
+        return mSerialNumGenerator.incrementAndGet();
     }
 
 }
