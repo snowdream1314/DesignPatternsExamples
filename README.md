@@ -11,4 +11,7 @@
 - [Android 设计模式之原型模式](http://www.jianshu.com/p/465c25491eaf)
 - [Android 设计模式之工厂方法模式](http://www.jianshu.com/p/6f1d09e95250)
 - [Android 设计模式之策略模式](http://www.jianshu.com/p/5053d7ed181e)
+- [Android 设计模式之适配器模式](http://www.jianshu.com/p/b4ae4fe4bcae)
+- [Android 设计模式之桥接模式](http://www.jianshu.com/p/1fa5afdd45f7)
+- [Android 设计模式之状态模式](http://www.jianshu.com/p/41cc36a4801e)
 - [Android 设计模式之面向对象的六大原则](http://www.jianshu.com/p/632d45c3b65d)
